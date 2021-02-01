@@ -35,7 +35,17 @@ void taxi::drive(float distance, bool guest) {
 
 void taxi::refuel(float gas_price) {
 	float missing_fuel = this->m_max_tank_capacity - this->m_current_tank_capacity;
-
+	if (missing_fuel * gas_price < this->m_balance) {
+		this->m_current_tank_capacity = this->m_max_tank_capacity;
+		this->m_balance = this->m_balance - missing_fuel * gas_price;
+		std::cout << "Der Tank wurde aufgefühlt. Es wurden " << missing_fuel * gas_price << " berechnet." << std::endl;
+	} else {
+		std::cout << "Der Geldstand von " << this->m_balance << " reicht nicht aus, um den Tank vollzutanken." << std::endl;
+		std::cout << "Soll der Tank mit dem vorhandenen Geld so weit wie möglich vollgetankt werden? Folgende Antworten sind möglich:" << std::endl;
+		std::cout << "ja -> y" << std::endl;
+		std::cout << "nein -> n" << std::endl;
+		//TODO if oder case abfrage einfügen
+	}
 }
 
 void taxi::output() {
