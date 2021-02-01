@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClInclude Include="taxi.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Taxi.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
